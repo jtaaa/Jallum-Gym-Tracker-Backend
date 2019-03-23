@@ -10,6 +10,7 @@ mongoose.connect(mongoConnectionString`
 `, {
   useCreateIndex: true,
   useNewUrlParser: true,
+  useFindAndModify: false,
 });
 
 const db = mongoose.connection;
