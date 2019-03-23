@@ -31,15 +31,7 @@ passport.serializeUser((user: any, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  UserModel.findById(id)
-    .lean()
-    .exec()
-    .then(user => {
-      done(null, user);
-    })
-    .catch(err => {
-      done(err);
-    });
+  done(null, id);
 });
 
 export { passport };
