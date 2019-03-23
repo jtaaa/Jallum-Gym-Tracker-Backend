@@ -43,6 +43,12 @@ const UserSchema = new Schema({
     default: Date.now,
     required: true,
   },
+  sessions: {
+    type: [ Schema.Types.ObjectId ],
+    ref: 'session',
+    default: [],
+    required: true,
+  },
 });
 
 const UserModel = db.model('user', UserSchema);
