@@ -6,6 +6,9 @@ import * as logger from 'morgan';
 import { passport, session } from './auth';
 
 import authRouter from './routes/auth';
+import userRouter from './routes/user';
+import exerciseRouter from './routes/exercise';
+import sessionRouter from './routes/session';
 
 const app = express();
 
@@ -18,6 +21,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
+app.use('/api/exercise', exerciseRouter);
+app.use('/api/session', sessionRouter);
 
 // Error handler
 app.use((err, req, res, next) => {
