@@ -16,8 +16,10 @@ const SessionSchema = new Schema({
     required: true,
   },
   sets: {
-    type: [ Schema.Types.ObjectId ],
-    ref: 'set',
+    type: [{
+      type: Schema.Types.ObjectId,
+      ref: 'set',
+    }],
     default: [],
     required: true,
   },

@@ -44,8 +44,10 @@ const UserSchema = new Schema({
     required: true,
   },
   sessions: {
-    type: [ Schema.Types.ObjectId ],
-    ref: 'session',
+    type: [{
+      type: Schema.Types.ObjectId,
+      ref: 'session',
+    }],
     default: [],
     required: true,
   },
