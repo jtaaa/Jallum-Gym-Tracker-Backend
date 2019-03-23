@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as createError from 'http-errors';
+import { ensureAdmin, ensureLoggedIn } from 'auth';
 import { SessionModel, SetModel, UserModel } from './../db';
 
 const router = Router();
@@ -32,7 +33,7 @@ router.get('/', async (req, res, next) => {
  * Response:
  *    Status: 200
  */
-router.post('/', async (req, res, next) => {
+router.post('/', ensureLoggedIn(), async (req, res, next) => {
   if (!req.body.session) return next(createError(400, 'No session property found in request body.'));
   if (!req.body.session.sets || !Array.isArray(req.body.session.sets)) return next(createError(400, 'No sets property on session found or value is not an array.'))
 

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { UserModel } from './../db';
+import { ensureLoggedIn } from 'auth';
 
 const router = Router();
 
@@ -12,7 +13,7 @@ const router = Router();
  *    Description: User information including sessions with sets
  * -  body: User
  */
-router.get('/', async (req, res, next) => {
+router.get('/', ensureLoggedIn(), async (req, res, next) => {
   const user = await UserModel.findById(req.user, null, { lean: true }).populate({
     path: 'sessions',
     populate: {
