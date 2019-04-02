@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as createError from 'http-errors';
+
 import { ExerciseModel } from './../db';
 
 const router = Router();

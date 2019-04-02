@@ -1,11 +1,13 @@
 import { Router } from 'express';
+
+import { ensureLoggedIn } from './../auth';
+
 import { UserModel } from './../db';
-import { ensureLoggedIn } from 'auth';
 
 const router = Router();
 
 /**
- * Endpoint: /api/user
+ * Endpoint: /api/users
  * Method: GET
  * Query:
  * -  exercise: Number = 0

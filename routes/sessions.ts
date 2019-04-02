@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import * as createError from 'http-errors';
-import { ensureAdmin, ensureLoggedIn } from 'auth';
+
+import { ensureAdmin, ensureLoggedIn } from './../auth';
+
 import { SessionModel, SetModel, UserModel } from './../db';
 
 const router = Router();
