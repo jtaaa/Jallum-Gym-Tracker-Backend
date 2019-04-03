@@ -17,7 +17,7 @@ const sessionStore = new MongoDBStore({
 sessionStore.on('error', console.error.bind(console, 'connection error:'));
 
 const session = () => expressSession({
-  cookie: { secure: process.env.REACT_APP_ENV === 'production' },
+  cookie: { secure: process.env.REACT_APP_ENV === 'production', domain: '.jallum.fitness' },
   name: 'jallum-gym-tracker.sesh',
   resave: false,
   saveUninitialized: false,
