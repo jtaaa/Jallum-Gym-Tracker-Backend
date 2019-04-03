@@ -5,7 +5,8 @@ export default {
   GOOGLE_OAUTH_CLIENT_ID: process.env.GOOGLE_OAUTH_CLIENT_ID,
   GOOGLE_OAUTH_CLIENT_SECRET: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
   EXPRESS_SESH_SECRET: process.env.EXPRESS_SESH_SECRET,
-  HOMEPAGE_URL: process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/' : 'https://jallum.fitness',
+  HOMEPAGE_URL: process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://jallum.fitness',
+  API_URL: process.env.NODE_ENV !== 'production' ? `http://localhost:${process.env.PORT || 5000}/api` : 'https://api.jallum.fitness/api',
   CORS_CONFIG: {
     origin: 'https://jallum.fitness',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204

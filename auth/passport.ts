@@ -8,7 +8,7 @@ passport.use(new GoogleStategy(
   {
     clientID: CONFIG.GOOGLE_OAUTH_CLIENT_ID,
     clientSecret: CONFIG.GOOGLE_OAUTH_CLIENT_SECRET,
-    callbackURL: '/api/auth/google/callback',
+    callbackURL: `${CONFIG.API_URL}/auth/google/callback`,
   },
   (accessToken, refreshToken, profile, done) => {
     UserModel.findOneAndUpdate(
