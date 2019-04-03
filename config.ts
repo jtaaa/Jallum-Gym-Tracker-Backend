@@ -9,6 +9,7 @@ export default {
   API_URL: process.env.NODE_ENV !== 'production' ? `http://localhost:${process.env.PORT || 5000}/api` : 'https://api.jallum.fitness/api',
   CORS_CONFIG: {
     origin: 'https://jallum.fitness',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    credentials: true,
   },  
 };
