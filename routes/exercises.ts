@@ -30,13 +30,13 @@ router.get('/', async (req, res, next) => {
  */
 router.put('/', async (req, res, next) => {
   try {
-    await ExerciseModel.create(req.body);
+    const newExercise = await ExerciseModel.create(req.body);
+    return res.status(200).send(newExercise);
   } catch (err) {
     if (err.name === 'ValidationError')
       return next(createError(400, { errors: err.errors }));
     return next(err);
   }
-  return res.sendStatus(200);
 });
 
 export default router;
