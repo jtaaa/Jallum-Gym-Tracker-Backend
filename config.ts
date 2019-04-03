@@ -7,7 +7,7 @@ export default {
   EXPRESS_SESH_SECRET: process.env.EXPRESS_SESH_SECRET,
   HOMEPAGE_URL: process.env.NODE_ENV !== 'production' ? 'http://localhost:3000/' : '/',
   CORS_CONFIG: {
-    origin: 'https://jtaaa.github.io',
+    origin: 'https://jallum.fitness',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   },  
 };
