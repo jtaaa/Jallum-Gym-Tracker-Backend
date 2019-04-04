@@ -23,6 +23,11 @@ const SessionSchema = new Schema({
     default: [],
     required: true,
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    required: true,
+  },
 });
 
 const SessionModel = db.model('session', SessionSchema);

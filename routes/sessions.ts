@@ -16,9 +16,9 @@ const router = Router();
  *    Description: All user session within limit
  * -  body: Array<Session>
  */
-router.get('/', async (req, res, next) => {
+router.get('/', ensureLoggedIn(), async (req, res, next) => {
   const limit = req.query.limit || 10;
-  const sessions = await SessionModel.find({}, null, { lean: true, limit });
+  const sessions = await SessionModel.find({ user: req.user._id }, null, { lean: true, limit });
   return res.json(sessions);
 });
 
@@ -41,7 +41,7 @@ router.post('/', ensureLoggedIn(), async (req, res, next) => {
 
   try {
     const sets = await SetModel.create(req.body.session.sets);
-    const session = await SessionModel.create({ ...req.body.session, sets });
+    const session = await SessionModel.create({ ...req.body.session, sets, user: req.user._id });
     await UserModel.updateOne({ _id: req.user }, { $addToSet: { sessions: session._id } });
   } catch (err) {
     if (err.name === 'ValidationError')
