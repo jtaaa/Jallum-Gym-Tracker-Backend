@@ -8,7 +8,7 @@ import { SessionModel, SetModel, UserModel } from './../db';
 const router = Router();
 
 /**
- * Endpoint: /api/session
+ * Endpoint: /api/sessions
  * Method: GET
  * Query:
  * -  limit: Number = 10
@@ -23,7 +23,7 @@ router.get('/', ensureLoggedIn(), async (req, res, next) => {
 });
 
 /**
- * Endpoint: /api/session
+ * Endpoint: /api/sessions
  * Method: POST
  * Request:
  * -  body:

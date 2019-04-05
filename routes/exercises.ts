@@ -6,7 +6,7 @@ import { ExerciseModel } from './../db';
 const router = Router();
 
 /**
- * Endpoint: /api/exercise
+ * Endpoint: /api/exercises
  * Method: GET
  * Response:
  *    Description: All exercises
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
 });
 
 /**
- * Endpoint: /api/exercise
+ * Endpoint: /api/exercises
  * Method: PUT
  * Request:
  * -  body:
