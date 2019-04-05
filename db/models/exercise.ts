@@ -16,6 +16,16 @@ const ExerciseSchema = new Schema({
     default: [],
     required: true,
   },
+  defaultWeight: {
+    type: Number,
+    default: 30,
+    required: true,
+  },
+  defaultReps: {
+    type: Number,
+    default: 10,
+    required: true,
+  }
 });
 
 const ExerciseModel = db.model('exercise', ExerciseSchema);
