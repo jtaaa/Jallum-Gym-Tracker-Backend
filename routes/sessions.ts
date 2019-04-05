@@ -18,7 +18,7 @@ const router = Router();
  */
 router.get('/', ensureLoggedIn(), async (req, res, next) => {
   const limit = req.query.limit || 10;
-  const sessions = await SessionModel.find({ user: req.user._id }, null, { lean: true, limit });
+  const sessions = await SessionModel.find({ user: req.user._id }, null, { lean: true, limit, populate: 'sets' });
   return res.json(sessions);
 });
 
